@@ -18,12 +18,12 @@ How to create a virtual python environment:
 
 How to clone project to your virtual environment:
 
-1. ```git clone https://github.com/JuicyS8da/my_portfolio_blog.git``` (to your folder)
-2. ```cd my_portfolio_blog/```
+1. ```git clone https://github.com/JuicyS8da/Django_pilot``` (to your folder)
+2. ```cd backend/```
 3. ```pip install -r requirements.txt```
-4. ```cd portfolio_blog/```
-5. ```python manage.py runserver```
-6. Put http://127.0.0.1:8000/ into url field in your browser
-7. (optional) If you want to user django admin http://127.0.0.1:8000/admin/, default superuser is:
+4. ```python manage.py runserver```
+5. Put http://127.0.0.1:8000/ into url field in your browser
+6. (optional) If you want to user django admin http://127.0.0.1:8000/admin/, default superuser is:
 
 Login: user
+Password: 123 (or 123123)
