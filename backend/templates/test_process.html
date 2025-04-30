@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Pilot Test System</div>
+        <div class="user-info">
+            <span class="user-name">Пользователь</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'profile' %}">Мой профиль</a></li>
+                    <li><a href="{% url 'tests' %}">Сдать экзамен</a></li>
+                    <li><a href="test_result.html">Результаты тестов</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="subscriptions.html">Подписки</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+           <!-- Основная зона теста -->
+           <main class="main-content">
+            <div class="test-container">
+        
+                <form method="post" class="question-panel">
+                    {% csrf_token %}
+                    <h2 id="question-text">{{ current_question.text }}</h2>
+        
+                    <div class="options">
+                        {% for option in current_question.options.all %}
+                        <label>
+                            <input type="radio" name="answer_{{ current_question.id }}" value="{{ option.id }}" {% if user_answer and user_answer.selected_option and option.id == user_answer.selected_option.id %} checked {% endif %}>
+                            {{ option.text }}
+                          </label>
+                        {% endfor %}
+                    </div>
+        
+                    {% with questions|last as last_question %}
+                        {% if current_question.id == last_question.id %}
+                            <button id="finish-btn" type="submit" name="action" value="finish">Завершить тест</button>
+                        {% else %}
+                            <button type="submit" name="action" value="next">Далее</button>
+                        {% endif %}
+                    {% endwith %}
+                </form>
+        
+                <div class="sidebar">
+                    <h3>Прогресс</h3>
+                    <div id="question-list" class="question-list">
+                        {% for question in questions %}
+                        <a href="{% url 'test_process' exam.id %}?question_id={{ question.id }}" class="question-item {% if question.id == current_question.id %}active{% endif %}" data-question-id="{{ question.id }}">
+                            {{ forloop.counter }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+        
+            </div>
+        </main>
+        
+    </div>
+
+    <script>
+        document.querySelectorAll('.question-item').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                const form = document.querySelector('form.question-panel');
+                const formData = new FormData(form);
+    
+                fetch("", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                    },
+                    body: formData
+                }).then(() => {
+                    window.location.href = this.href;
+                });
+            });
+        });
+    
+        // Проверка перед завершением теста
+        document.addEventListener("DOMContentLoaded", function () {
+            const finishBtn = document.getElementById("finish-btn");
+            if (finishBtn) {
+                finishBtn.addEventListener("click", function (e) {
+                    const checkedOption = document.querySelector('input[type="radio"]:checked');
+                    if (!checkedOption) {
+                        e.preventDefault(); // блокируем отправку
+                        alert("Пожалуйста, выберите вариант ответа перед завершением теста.");
+                    }
+                });
+            }
+        });
+    </script>
+    
+    
+    <!-- <script src="{% static 'test_script.js' %}"></script> -->
+</body>
+</html>

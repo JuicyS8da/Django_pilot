@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты теста</title>
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Pilot Test System</div>
+        <div class="user-info">
+            <span class="user-name">Пользователь</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html">Мой профиль</a></li>
+                    <li><a href="test_start.html">Сдать экзамен</a></li>
+                    <li><a href="test_result.html">Результаты тестов</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="subscriptions.html">Подписки</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="test-results-container">
+            <h2>Результаты теста: {{ exam.title }}</h2>
+            
+            <!-- Основная информация о тесте -->
+            <div class="test-summary">
+                <p><strong>Дата:</strong> {{ date_taken }}</p>
+                <p><strong>Результат:</strong> {{ score }}%</p>
+                <!-- <p><strong>Статус:</strong> <span class="status passed">Пройден</span></p> -->
+            </div>
+
+            <h3>Ответы на вопросы</h3>
+            <div id="results">
+                {% for result in result_details %}
+                <div class="question-block"><button class="accordion active">{{ result.question }}</button><div class="panel" style="display: block;">
+                    {% if result.is_correct %}
+                    <p>Выбранный ответ: <span class="correct">{{ result.user_answer }}</span></p>
+                    {% else %}
+                    <p>Выбранный ответ: <span class="incorrect">{{ result.user_answer }}</span></p>
+                    {% endif %}
+                    <p>Правильный ответ: <span class="correct">{{ result.correct_answer }}</span></p>
+                </div></div>
+                {% endfor %}
+            </div>
+
+            <button onclick="window.location.href='{% url 'profile' %}'">Назад</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let resultsContainer = document.getElementById("results");
+
+            // Мульяж данных
+            let results = [
+];
+
+
+            results.forEach((item, index) => {
+                let questionBlock = document.createElement("div");
+                questionBlock.classList.add("question-block");
+
+                // Заголовок вопроса с кнопкой раскрытия
+                let questionHeader = document.createElement("button");
+                questionHeader.classList.add("accordion");
+                questionHeader.innerText = `Вопрос ${index + 1}: ${item.question}`;
+                questionBlock.appendChild(questionHeader);
+
+                // Блок с ответами (по умолчанию скрыт)
+                let answerPanel = document.createElement("div");
+                answerPanel.classList.add("panel");
+                answerPanel.innerHTML = `
+                    <p>Выбранный ответ: <span class="${item.selectedAnswer === item.correctAnswer ? 'correct' : 'incorrect'}">${item.selectedAnswer}</span></p>
+                    <p>Правильный ответ: <span class="correct">${item.correctAnswer}</span></p>
+                `;
+                questionBlock.appendChild(answerPanel);
+
+                resultsContainer.appendChild(questionBlock);
+            });
+
+            // Логика раскрытия вопросов
+            let accordions = document.querySelectorAll(".accordion");
+            accordions.forEach((acc) => {
+                acc.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    let panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .test-summary {
+            background: #f3f3f3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .status.passed { color: green; font-weight: bold; }
+        .status.failed { color: red; font-weight: bold; }
+        .status.pending { color: orange; font-weight: bold; }
+
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+        .question-block { margin-bottom: 10px; }
+        
+        .accordion {
+            background-color: #eee;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            display: none;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+    </style>
+</body>
+</html>

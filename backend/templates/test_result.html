@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогресс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #003366;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-name {
+            margin-right: 10px;
+        }
+
+        .user-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover, .sidebar nav ul li a.active {
+            background-color: #00509E;
+        }
+
+        .main-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .progress-table th, .progress-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .progress-table th {
+            background-color: #004080;
+            color: white;
+        }
+
+        .chart-container, .checklist-container, .journal-section, .time-management-section, .leaderboard-section {
+            margin-top: 30px;
+        }
+
+        .time-management-section, .techniques-section, .leaderboard-section, .journal-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-btn {
+            display: block;
+            margin: 10px auto;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 200px;
+        }
+
+        .add-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Future Pilot</div>
+        <div class="user-info">
+            <span class="user-name">Пользователь</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html"><i class="fas fa-user"></i> Мой профиль</a></li>
+                    <li><a href="test_start.html"><i class="fas fa-pencil-alt"></i> Сдать экзамен</a></li>
+                    <li><a href="test_result.html"><i class="fas fa-chart-line"></i> Результаты тестов</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Настройки</a></li>
+                    <li><a href="contacts.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-credit-card"></i> Подписки</a></li>
+                    <li><a href="ab_initio.html"><i class="fas fa-plane"></i> AB Initio</a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li> 
+                    <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h2>Прогресс подготовки</h2>
+
+            <!-- График прогресса -->
+            <div class="chart-container">
+                <h3>График прогресса</h3>
+                <canvas id="progressChart"></canvas>
+            </div>
+
+            <!-- Чек-листы -->
+            <div class="checklist-container">
+                <h3>Чек-лист задач</h3>
+                <ul id="checklist">
+                    <!-- Пользователь добавляет -->
+                </ul>
+                <button class="add-btn" onclick="addChecklistItem()">Добавить задачу</button>
+            </div>
+
+            <!-- Дневник -->
+            <div class="journal-section">
+                <h3>Дневник прогресса</h3>
+                <textarea id="journal" placeholder="Введите заметки о сложных темах, ошибках и улучшениях..." style="width: 100%; height: 100px;"></textarea>
+                <button class="add-btn" onclick="saveJournal()">Сохранить заметки</button>
+            </div>
+
+            <!-- Техники запоминания -->
+            <div class="techniques-section">
+                <h3>Техники запоминания</h3>
+                <ul>
+                    <li>Метод ассоциаций</li>
+                    <li>Мнемоника</li>
+                    <li>Метод Фейнмана</li>
+                </ul>
+            </div>
+
+            <!-- Управление временем -->
+            <div class="time-management-section">
+                <h3>Управление временем</h3>
+                <ul>
+                    <li>Техника Pomodoro</li>
+                    <li>Тайм-боксинг</li>
+                    <li>Режим «Экзамена»</li>
+                </ul>
+            </div>
+
+            <!-- Доска лидеров -->
+            <div class="leaderboard-section">
+                <h3>Доска лидеров</h3>
+                <table class="progress-table">
+                    <thead>
+                        <tr>
+                            <th>Пользователь</th>
+                            <th>Баллы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Иван Иванов</td>
+                            <td>1500</td>
+                        </tr>
+                        <tr>
+                            <td>Мария Смирнова</td>
+                            <td>1400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Функция добавления элемента в чек-лист
+        function addChecklistItem() {
+            const checklist = document.getElementById('checklist');
+            const newItem = prompt('Введите новую задачу:');
+            if (newItem) {
+                const li = document.createElement('li');
+                li.textContent = newItem;
+                checklist.appendChild(li);
+            }
+        }
+
+        // Сохранение заметок
+        function saveJournal() {
+            const journal = document.getElementById('journal').value;
+            if (journal) {
+                alert('Заметки сохранены!');
+            }
+        }
+
+        // График прогресса
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Навигация', 'Метеорология', 'Техническая подготовка'],
+                datasets: [{
+                    label: 'Прогресс (%)',
+                    data: [75, 80, 85],
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Темы экзаменов'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Прогресс (%)'
+                            },
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                stepSize: 10
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+</body>
+</html>

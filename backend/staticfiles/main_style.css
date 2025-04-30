@@ -1,0 +1,743 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Верхняя панель */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #004080;
+    color: white;
+    padding: 15px 20px;
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.user-name {
+    margin-right: 10px;
+    color: white;
+}
+
+/* Основной контейнер */
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Боковая панель */
+.sidebar {
+    width: 250px;
+    background: #00264d;
+    padding: 20px;
+    color: white;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    margin: 15px 0;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    background: #0059b3;
+}
+
+/* Основное содержимое */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Карточка профиля */
+.profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #004080;
+}
+.change-photo {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: #004080;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.change-photo:hover {
+    background: #0059b3;
+}
+
+/* Поля профиля */
+.profile-info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.profile-input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.password-form {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+/* Кнопка "Изменить пароль" - менее заметная */
+.change-password-btn {
+    background: white !important;
+    color: #004080 !important;
+    border: 2px solid #004080 !important;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* При наведении */
+.change-password-btn:hover {
+    background: #004080 !important;
+    color: white !important;
+    border: 2px solid #004080 !important;
+}
+
+
+/* Кнопка "Сохранить" - главная, в приоритете */
+.save-btn {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn:hover {
+    background: #003366;
+}
+
+
+
+.applications-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #00264d;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.applications-table th, .applications-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.applications-table th {
+    background: #f4f4f4;
+    color: #333;
+    font-weight: normal;
+}
+
+.applications-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* Убираем рамки и фон у статусов */
+.status {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* Цвета статусов */
+.status.pending {
+    color: #a67c00; /* Желтый оттенок для ожидания */
+}
+
+.status.approved {
+    color: #1d5f2d; /* Темно-зеленый для одобренных */
+}
+
+.status.rejected {
+    color: #7d0a0a; /* Темно-красный для отклоненных */
+}
+
+/* Кнопки */
+button {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.view-btn {
+    color: #004080;
+    border-color: #004080;
+}
+
+.edit-btn {
+    color: #666;
+    border-color: #666;
+}
+
+.delete-btn {
+    color: #7d0a0a;
+    border-color: #7d0a0a;
+}
+
+button:hover {
+    background: #f8f8f8;
+}
+
+.test-results-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #00264d;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.test-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.test-results-table th, .test-results-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.test-results-table th {
+    background: #f4f4f4;
+    color: #333;
+    font-weight: normal;
+}
+
+.test-results-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* Статусы */
+.status {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.status.passed {
+    color: #1d5f2d;
+}
+
+.status.pending {
+    color: #a67c00;
+}
+
+.status.failed {
+    color: #7d0a0a;
+}
+
+/* Кнопка */
+.view-btn {
+    padding: 6px 10px;
+    border: 1px solid #004080;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #004080;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.view-btn:hover {
+    background: #f8f8f8;
+}
+
+.exam-container {
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: #00264d;
+    margin-bottom: 20px;
+}
+
+.exam-info {
+    font-size: 16px;
+    text-align: left;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.status.available {
+    color: #1d5f2d;
+}
+
+/* Кнопка "Начать тест" */
+.start-exam-btn {
+    display: inline-block;
+    text-align: center;
+    background: #004080;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.start-exam-btn:hover {
+    background: #003366;
+}
+
+.password-form {
+    display: none; /* Скрываем форму по умолчанию */
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.change-password-btn {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.change-password-btn:hover {
+    background: #0059b3;
+}
+
+/* Основная часть теста */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контейнер теста */
+.test-container {
+    display: flex;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+}
+
+/* Левая часть - тест */
+.test-content {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Варианты ответа */
+.options label {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.options label:hover {
+    background: #e6f0ff;
+}
+
+.next-btn {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.next-btn:hover {
+    background: #003366;
+}
+
+/* Правая панель - список вопросов */
+.test-sidebar {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    background: #f4f4f9;
+    border-left: 2px solid #ddd;
+}
+
+.question-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.question-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: #0059b3;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.question-item:hover {
+    background: #003366;
+}
+
+.answered {
+    background: #00a86b !important; /* Зеленый цвет для отмеченных вопросов */
+}
+
+/* Контейнер настроек */
+.settings-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: auto;
+}
+
+.settings-container h2 {
+    text-align: center;
+}
+
+.checkbox-label {
+    display: block;
+    margin: 15px 0;
+}
+
+.theme-setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+#theme-button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #f4f4f9;
+    color: #333;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#theme-button:hover {
+    background: #e0e0e0;
+}
+
+.language-setting {
+    margin: 15px 0;
+}
+
+.save2-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #004080;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save2-btn:hover {
+    background: #003366;
+}
+
+/* Контейнер контактов */
+.contacts-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.contacts-container h2 {
+    text-align: center;
+    color: #004080;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #004080;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Форма обратной связи */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.send-btn {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.send-btn:hover {
+    background: #003366;
+}
+
+/* Контейнер экзаменов */
+.exam-container {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Заголовок категории */
+.category-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.exam-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.exam-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Кнопка старта */
+.start-exam-btn {
+    text-align: center;
+    padding: 10px;
+    background-color: #0055aa;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.subscriptions-container {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.subscriptions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.subscription {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.subscription h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subscription ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.subscription ul li {
+    margin-bottom: 5px;
+}
+
+.subscribe-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.subscribe-btn:hover {
+    background-color: #0056b3;
+}
+
+.subscribe-btn:disabled {
+    background-color: #ccc;
+    cursor: default;
+}
+
+/* Цвета подписок */
+.free {
+    border-top: 4px solid #28a745;
+}
+
+.pro {
+    border-top: 4px solid #007bff;
+}
+
+.company {
+    border-top: 4px solid #ff9900;
+}

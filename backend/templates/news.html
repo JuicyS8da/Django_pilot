@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - Future Pilot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #003366;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover, .sidebar nav ul li a.active {
+            background-color: #00509E;
+        }
+
+        .main-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-title {
+            color: #004080;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .news-description {
+            margin-bottom: 20px;
+            color: gray;
+        }
+
+        .news-item {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .news-item h3 {
+            margin: 0;
+            color: #004080;
+        }
+
+        .news-item .date {
+            font-size: 0.9em;
+            color: gray;
+        }
+
+        .news-item .description {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .news-item .details {
+            display: none;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .news-item .toggle-btn {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const newsItem = event.target.closest('.news-item');
+                    const details = newsItem.querySelector('.details');
+                    details.style.display = details.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Future Pilot</div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html"><i class="fas fa-user"></i> Мой профиль</a></li>
+                    <li><a href="test_start.html"><i class="fas fa-pencil-alt"></i> Сдать экзамен</a></li>
+                    <li><a href="test_result.html"><i class="fas fa-chart-line"></i> Результаты тестов</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Настройки</a></li>
+                    <li><a href="contacts.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-credit-card"></i> Подписки</a></li>
+                    <li><a href="ab_initio.html"><i class="fas fa-plane"></i> AB Initio</a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li> 
+                    <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="news-title">Новости</h1>
+            <p class="news-description">Актуальные новости вы можете находить тут.</p>
+
+<div class="news-item">
+    <h3>С праздником Наурыз! 🌿</h3>
+    <p class="description">Пусть этот день принесёт вам радость, обновление и множество светлых моментов!</p>
+    <p class="date">20 марта 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Команда Future Pilot поздравляет всех подписчиков с великим праздником весны — Наурыз! 🌞 Этот день символизирует начало нового года, пробуждение природы и новые надежды. Пусть каждый ваш день будет наполнен счастьем, успехами и благополучием. Желаем вам безграничных возможностей, удачи во всех начинаниях и множества успешных полетов! ✈️✨ Пусть этот год принесет вам только позитивные перемены и исполнение всех желаний! С уважением, команда Future Pilot.</div>
+</div>
+
+<div class="news-item">
+    <h3>С Днём работников гражданской авиации Казахстана! ✈️</h3>
+    <p class="description">Поздравляем всех, кто связал свою жизнь с небом и авиацией!</p>
+    <p class="date">15 февраля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Сегодня мы чествуем тех, кто посвятил свою жизнь авиации: пилотов, авиадиспетчеров, инженеров, техников, бортпроводников и всех, кто делает авиацию безопасной и эффективной! 🎉 Ваша работа – это высокий профессионализм, ответственность и преданность делу. Пусть ваши полеты всегда проходят гладко, небо будет чистым, а успех сопутствует вам во всем! Легких взлетов и мягких посадок! С уважением, команда Future Pilot.</div>
+</div>
+
+<div class="news-item">
+    <h3>Важно: ВЛЭК в Астане уходит в отпуск!</h3>
+    <p class="description">Обратите внимание на даты работы медицинской комиссии.</p>
+    <p class="date">23 декабря 2024 – 5 января 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Уважаемые подписчики! Информируем вас о том, что ВЛЭК в Астане не будет работать с 23 декабря 2024 года по 5 января 2025 года. Если вам необходимо пройти медицинскую комиссию, рекомендуем планировать визит начиная с 6 января 2025 года. Учитывайте этот момент при подаче документов! 🚑 С уважением, команда Future Pilot.</div>
+</div>
+
+<div class="news-item">
+    <h3>Хотите стать пилотом? Приходите на встречу Air Astana в Караганде!</h3>
+    <p class="description">Узнайте всё о программе Ab-Initio и возможностях стать пилотом!</p>
+    <p class="date">29 ноября 2024</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">📢 Уникальная возможность для всех, кто мечтает стать пилотом! Air Astana проводит встречу, где вы сможете лично пообщаться с действующими пилотами, узнать все подробности о программе Ab-Initio и возможностях работы в авиакомпании. 
+    📅 Дата: 29 ноября 2024
+    ⏰ Время: 18:00
+    📍 Место: Караганда, Бухар Жырау 92/2, Apart Hotel 92/2
+    🔗 Регистрация обязательна: <a href="https://hmsg.me/u0192fbed-53e6-704a-b16f-fc81ffb042d2organic">Зарегистрироваться</a>
+    Не упустите шанс начать свою карьеру в авиации уже сейчас! 🚀</div>
+</div>
+
+<div class="news-item">
+    <h3>Все о ВЛЭК: Зрение и медицинская комиссия для пилотов</h3>
+    <p class="description">Разбираем важные требования по зрению для прохождения медкомиссии.</p>
+    <p class="date">Октябрь 2024</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Одним из самых частых вопросов по прохождению ВЛЭК является зрение. Для первичного допуска кандидаты должны иметь зрение не ниже 0.7 (70%) без коррекции, что соответствует 7-й строчке таблицы проверки зрения. Если ваше зрение ниже этого уровня, то вам придется проходить дополнительные обследования у офтальмолога каждые полгода.❗️💡
+    Важно: ваш сертификат будет годным целый год, но медицинское наблюдение у окулиста станет обязательным! Будьте внимательны и заранее проверяйте свое зрение перед подачей документов. 👓 С уважением, команда Future Pilot.</div>
+</div>
+
+<div class="news-item">
+    <h3>Рекрутинговая конференция Air Astana по Ab-Initio</h3>
+    <p class="description">Задайте свой вопрос о программе подготовки пилотов!</p>
+    <p class="date">Ноябрь 2024</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Air Astana организует конференцию по программе Ab-Initio! Это шанс узнать все нюансы подготовки пилотов напрямую от специалистов авиакомпании. Если у вас есть вопросы, оставьте их по ссылке: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfkvN1us9JcFZ0QyobAOThIO0r60cQZNXwYBUlx_Jio18Kbng/viewform?usp=sf_link">Задать вопрос</a> ✈️ 
+    Пожалуйста, постарайтесь предлагать вопросы, которые еще не обсуждались ранее! Ждем вас на конференции! 🚀</div>
+</div>
+
+<div class="news-item">
+    <h3>День Открытых Дверей Air Astana</h3>
+    <p class="description">Присоединяйтесь к онлайн-встрече и узнайте все о программе Ab-Initio!</p>
+    <p class="date">20 июля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Мечтаете стать пилотом? ✈️ Air Astana приглашает всех желающих на онлайн-мероприятие, где вы сможете узнать все детали программы Ab-Initio, задать вопросы действующим пилотам и узнать, как построить карьеру в авиации. 
+    📅 Дата: 20 июля
+    ⏰ Время: 12:00
+    🔗 Регистрация обязательна: <a href="https://clck.ru/3Bqrz3">Зарегистрироваться</a>
+    Присоединяйтесь и откройте для себя мир авиации уже сегодня! 🚀</div>
+</div>
+
+<div class="news-item">
+    <h3>Air Astana запускает новую программу обучения пилотов!</h3>
+    <p class="description">Теперь стать пилотом можно за 12 месяцев благодаря инновационным методикам!</p>
+    <p class="date">1 апреля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Программа включает в себя уникальный курс симуляционных полетов и реальных тренировок.</div>
+</div>
+
+<div class="news-item">
+    <h3>Будущие пилоты теперь проходят тест на стрессоустойчивость в условиях невесомости!</h3>
+    <p class="description">Новое испытание для кандидатов!</p>
+    <p class="date">5 марта 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Программа отбора теперь включает полеты в аэродинамической трубе для проверки реакции.</div>
+</div>
+
+<div class="news-item">
+    <h3>Первый роботизированный авиадиспетчер начал работу в аэропорту Алматы!</h3>
+    <p class="description">Искусственный интеллект берет под контроль управление полетами.</p>
+    <p class="date">10 февраля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Новая система AI обещает повысить безопасность полетов и минимизировать задержки.</div>
+</div>
+
+<div class="news-item">
+    <h3>Future Pilot открывает свою летную академию!</h3>
+    <p class="description">Теперь можно обучаться пилотированию прямо в Казахстане.</p>
+    <p class="date">20 января 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Новый центр обучения обеспечит будущих пилотов качественным образованием.</div>
+</div>
+
+<div class="news-item">
+    <h3>В Казахстане появится новый авиаперевозчик!</h3>
+    <p class="description">Компания Air Future обещает сделать полеты доступнее.</p>
+    <p class="date">15 апреля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Новый лоукостер планирует запустить рейсы по всему СНГ.</div>
+</div>
+
+<div class="news-item">
+    <h3>Внедрение VR-обучения для будущих пилотов!</h3>
+    <p class="description">Теперь курсанты смогут проходить тренировки в виртуальной реальности.</p>
+    <p class="date">10 мая 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Использование VR-технологий поможет улучшить подготовку пилотов.</div>
+</div>
+
+<div class="news-item">
+    <h3>Новая программа лояльности для студентов авиации!</h3>
+    <p class="description">Скидки на обучение и бонусы для лучших студентов.</p>
+    <p class="date">22 июня 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Программа лояльности поможет будущим пилотам сэкономить на обучении.</div>
+</div>
+
+<div class="news-item">
+    <h3>Future Pilot разрабатывает собственный симулятор полетов!</h3>
+    <p class="description">Будущие пилоты смогут тренироваться на уникальном оборудовании.</p>
+    <p class="date">5 июля 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Симулятор будет максимально приближен к реальным условиям полета.</div>
+</div>
+
+<div class="news-item">
+    <h3>Первые автономные пассажирские дроны тестируются в Казахстане!</h3>
+    <p class="description">Будущее авиации уже наступает!</p>
+    <p class="date">30 августа 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Автономные дроны смогут перевозить пассажиров на короткие дистанции.</div>
+</div>
+
+<div class="news-item">
+    <h3>Казахстанские пилоты теперь смогут обучаться в NASA!</h3>
+    <p class="description">Уникальная возможность для самых талантливых курсантов.</p>
+    <p class="date">12 сентября 2025</p>
+    <button class="toggle-btn">Подробнее</button>
+    <div class="details">Лучшие студенты получат стажировку в NASA.</div>
+</div>
+
+        </main>
+    </div>
+</body>
+</html>

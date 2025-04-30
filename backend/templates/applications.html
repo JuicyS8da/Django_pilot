@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="main_style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Pilot Test System</div>
+        <div class="user-info">
+            <span class="user-name">Пользователь</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html">Мой профиль</a></li>
+                    <li><a href="test_start.html">Сдать экзамен</a></li>
+                    <li><a href="test_result.html">Результаты тестов</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="subscriptions.html">Подписки</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <div class="applications-container">
+            <h2>Мои заявки</h2>
+            <table class="applications-table">
+                <thead>
+                    <tr>
+                        <th>Номер заявки</th>
+                        <th>Дата подачи</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#12345</td>
+                        <td>12.03.2025</td>
+                        <td class="status pending">На рассмотрении</td>
+                        <td>
+                            <button class="view-btn">Просмотр</button>
+                            <button class="edit-btn">Редактировать</button>
+                            <button class="delete-btn">Удалить</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#12346</td>
+                        <td>10.03.2025</td>
+                        <td class="status approved">Одобрено</td>
+                        <td>
+                            <button class="view-btn">Просмотр</button>
+                            <button class="edit-btn">Редактировать</button>
+                            <button class="delete-btn">Удалить</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#12347</td>
+                        <td>05.03.2025</td>
+                        <td class="status rejected">Отклонено</td>
+                        <td>
+                            <button class="view-btn">Просмотр</button>
+                            <button class="edit-btn">Редактировать</button>
+                            <button class="delete-btn">Удалить</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    
+    <script src="reg_script.js"></script>
+</body>
+</html>

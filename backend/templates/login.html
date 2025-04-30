@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Pilot - Вход</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .left-section, .right-section {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .left-section {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .login-container {
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+        }
+        .login-container h2 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .login-container p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-blue {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-blue:hover {
+            background: #084298;
+        }
+        .btn-google {
+            background: white;
+            color: #0d6efd;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-google i {
+            margin-right: 8px;
+        }
+        .btn-google:hover {
+            background: #f1f1f1;
+        }
+        .forgot-password a, .register a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        .forgot-password a:hover, .register a:hover {
+            text-decoration: underline;
+        }
+        .right-section {
+            text-align: center;
+        }
+        .right-section .icon {
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+        }
+        .right-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .right-section p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /* Password Recovery Form Styles */
+        #password-recovery {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 450px;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+            display: none;
+            text-align: center;
+        }
+        #password-recovery h2 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        #password-recovery p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        #password-recovery input {
+            margin-bottom: 1rem;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        #password-recovery .input-group button {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="login-container">
+                <h2>Future Pilot</h2>
+                <p><i>Aviation Training</i></p>
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        {{ form.username }}
+                    </div>
+                    <div class="input-group">
+                        {{ form.password }}
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#" onclick="openPasswordRecovery()">Забыли пароль?</a>
+                    </div>
+                    <div class="input-group">
+                        <button type="submit" class="btn-blue">Вход</button>
+                    </div>
+                    <div class="input-group">
+                        <button type="button" class="btn-google" onclick="loginWithGoogle()">
+                            <i class="bi bi-google"></i> Войти через Google
+                        </button>
+                    </div>
+                    <div class="register">
+                        <span>Новый пользователь?</span> <a href="{% url 'register' %}">Регистрация</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="right-section">
+            <i class="bi bi-airplane icon"></i>
+            <h1>Добро пожаловать в Future Pilot</h1>
+            <p>7 дней бесплатного пользования всем сайтом!</p>
+        </div>
+    </div>
+
+    <!-- Password Recovery Form -->
+    <div id="password-recovery">
+        <h2>Восстановление пароля</h2>
+        <p>Для восстановления аккаунта отправьте заявку менеджеру Future Pilot. Обработка займет до 3 рабочих дней.</p>
+        <form>
+            <div class="input-group">
+                <input type="email" placeholder="Введите вашу почту" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Введите имя и фамилию" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Введите код: F4U7T8Y8R8E1024" required>
+            </div>
+            <div class="input-group">
+                <input type="checkbox" id="data-confirm" required>
+                <label for="data-confirm">Согласие на обработку данных</label>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="btn-blue">Отправить</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function loginWithGoogle() {
+            alert("Функция Google Auth будет подключена.");
+        }
+
+        function openPasswordRecovery() {
+            document.getElementById('password-recovery').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

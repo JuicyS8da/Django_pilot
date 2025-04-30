@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="main_style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Pilot Test System</div>
+        <div class="user-info">
+            <span class="user-name">Пользователь</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html">Мой профиль</a></li>
+                    <li><a href="test_start.html">Сдать экзамен</a></li>
+                    <li><a href="test_result.html">Результаты тестов</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="subscriptions.html">Подписки</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="imgs/icon_user.png" alt="Фото профиля" class="profile-photo">
+                    <div class="profile-name">Пользователь</div>
+                    <button class="change-photo">Изменить фото</button>
+                </div>
+        
+                <div class="profile-info">
+                    <label>Имя:</label>
+                    <input type="text" value="Мугдарбек" class="profile-input">
+        
+                    <label>Фамилия:</label>
+                    <input type="text" value="Нурислам" class="profile-input">
+        
+                    <label>Телефон:</label>
+                    <input type="text" value="+7 777 123 4567" class="profile-input">
+
+                    <label>Email:</label>
+                    <input type="text" value="qwerty@gmail.com" class="profile-input">
+        
+                    <!-- Кнопка "Изменить пароль" (менее заметная) -->
+                    <button class="change-password-btn" onclick="togglePasswordForm()">Изменить пароль</button>
+        
+                    <!-- Форма изменения пароля (скрыта по умолчанию) -->
+                    <div class="password-form" id="passwordForm">
+                        <label>Новый пароль:</label>
+                        <input type="password" placeholder="Введите новый пароль" class="profile-input" id="new-password">
+        
+                        <label>Подтвердите пароль:</label>
+                        <input type="password" placeholder="Повторите новый пароль" class="profile-input" id="confirm-password">
+                    </div>
+        
+                    <!-- Кнопка "Сохранить" (приоритетная) -->
+                    <button class="save-btn" onclick="saveChanges()">Сохранить</button>
+                </div>
+            </div>
+        </main>
+        
+        <script>
+            function togglePasswordForm() {
+                let form = document.getElementById("passwordForm");
+                form.style.display = form.style.display === "none" || form.style.display === "" ? "block" : "none";
+            }
+        
+            function saveChanges() {
+                let newPassword = document.getElementById("new-password").value;
+                let confirmPassword = document.getElementById("confirm-password").value;
+        
+                if (newPassword !== "" || confirmPassword !== "") {
+                    if (newPassword !== confirmPassword) {
+                        alert("Пароли не совпадают!");
+                        return;
+                    } else {
+                        alert("Пароль успешно изменен!");
+                    }
+                }
+        
+                alert("Изменения сохранены!");
+                // Здесь можно добавить отправку данных на сервер
+            }
+        </script>
+        
+    </div>
+    
+    
+</body>
+</html>

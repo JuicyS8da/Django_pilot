@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Pilot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% block 'css' %}
+        
+    {% endblock %}
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Future Pilot</div>
+        <div class="user-info">
+            {% if user.is_authenticated %}
+            <span class="user-name" id="profile-name" href="{% url 'profile' %}">{{ user.first_name }} {{ user.last_name }}</span>
+            {% else %}
+            <a class="user-name" id="profile-name" href="{% url 'register' %}">Зарегистрироваться</a>
+            {% endif %}
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'profile' %}"><i class="fas fa-user"></i> Мой профиль</a></li>
+                    <li><a href="{% url 'tests' %}"><i class="fas fa-pencil-alt"></i> Сдать экзамен</a></li>
+                    <li><a href="test_result.html"><i class="fas fa-chart-line"></i> Результаты тестов</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Настройки</a></li>
+                    <li><a href="contacts.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-credit-card"></i> Подписки</a></li>
+                    <li><a href="ab_initio.html"><i class="fas fa-plane"></i> AB Initio</a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li> 
+                    <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        {% block 'main' %}
+
+        {% endblock %}
+    </div>
+
+    
+    {% block 'js' %}
+    
+    {% endblock %}
+</body>
+</html>
