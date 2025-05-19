@@ -148,9 +148,9 @@
         <main class="main-content">
             <div class="section" id="profile">
                 <h2><i class="fas fa-user"></i> Мой профиль</h2>
-                <p>Имя: <span id="profile-firstname">Мугдарбек</span></p>
-                <p>Фамилия: <span id="profile-lastname">Нурислам</span></p>
-                <p>Email: <span id="profile-email">qwerty@gmail.com</span></p>
+                <p>Имя: <span id="profile-firstname">{{ user.first_name }}</span></p>
+                <p>Фамилия: <span id="profile-lastname">{{ user.last_name }}</span></p>
+                <p>Email: <span id="profile-email">{{ user.email }}</span></p>
                 <button onclick="editProfile()">Редактировать профиль</button>
             </div>
 

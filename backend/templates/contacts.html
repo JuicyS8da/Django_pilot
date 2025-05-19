@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% extends "base.html" %}
+
+    {% block 'css' %}
     <style>
         body {
             margin: 0;
@@ -144,33 +140,9 @@
             }
         }
     </style>
-</head>
-<body>
-    <header class="top-bar">
-        <div class="logo">Future Pilot</div>
-        <div class="user-info">
-            <span class="user-name">Пользователь</span>
-            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
-        </div>
-    </header>
-    
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="main.html"><i class="fas fa-user"></i> Мой профиль</a></li>
-                    <li><a href="test_start.html"><i class="fas fa-pencil-alt"></i> Сдать экзамен</a></li>
-                    <li><a href="test_result.html"><i class="fas fa-chart-line"></i> Результаты тестов</a></li>
-                    <li><a href="settings.html"><i class="fas fa-cog"></i> Настройки</a></li>
-                    <li><a href="contacts.html" class="active"><i class="fas fa-envelope"></i> Контакты</a></li>
-                    <li><a href="subscriptions.html"><i class="fas fa-credit-card"></i> Подписки</a></li>
-                    <li><a href="ab_initio.html"><i class="fas fa-plane"></i> AB Initio</a></li>
-                    <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li> 
-                    <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                </ul>
-            </nav>
-        </aside>
+    {% endblock %}
         
+        {% block 'main' %}
         <main class="main-content">
             <div class="contacts-container">
                 <h2>Контакты</h2>
@@ -203,6 +175,4 @@
                 </form>
             </div>
         </main>
-    </div>
-</body>
-</html>
+        {% endblock %}

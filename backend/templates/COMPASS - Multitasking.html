@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FuturePilot - COMPASS - Multitasking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .landing {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #003366, #006699);
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .landing h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .landing h2 {
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    .landing button {
+      background: #ffffff;
+      color: #003366;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .landing button:hover {
+      background: #e0e0e0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      display: none;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .instruction {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .timer {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .center-block {
+      background: black;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .field {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+    }
+
+    input {
+      font-size: 24px;
+      width: 150px;
+    }
+
+    input.invalid {
+      border: 3px solid red;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 50px);
+      grid-gap: 5px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .grid div {
+      width: 50px;
+      height: 50px;
+      background: black;
+      border-radius: 6px;
+    }
+
+    .red { background: red !important; }
+    .green { background: green !important; }
+
+    .game-over {
+      font-size: 36px;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+
+    .input-timer {
+      font-size: 24px;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="landing" id="landing-screen">
+  <h1>FuturePilot</h1>
+  <h2>COMPASS - Multitasking Training Module</h2>
+  <p>Полноценная инструкция: вводите верные значения после скрытия данных. Нажимайте соответствующую цифру при появлении красного индикатора.</p>
+  <button onclick="startExperience()">НАЧАТЬ</button>
+</div>
+
+<div class="container" id="game-container">
+  <div class="title">FuturePilot - COMPASS - Multitasking</div>
+  <div class="instruction">
+    Enter the correct values when fields are hidden. Press the matching number when an indicator turns red. Green means correct. Wrong inputs show red borders instead of ending the game immediately.
+  </div>
+  <div class="timer" id="timer">Time Left: 180s</div>
+  <div class="input-timer" id="input-timer"></div>
+
+  <div class="center-block" id="center-block">
+    <div class="field">Altimetre: <span id="altimetre-value"></span></div>
+    <div class="field">Height: <span id="height-value"></span></div>
+    <div class="field">Speed: <span id="speed-value"></span></div>
+  </div>
+
+  <div class="center-block" style="background: #fff; color: black;">
+    <div class="field">Altimetre: <input type="number" id="altimetre-input" /></div>
+    <div class="field">Height: <input type="number" id="height-input" /></div>
+    <div class="field">Speed: <input type="number" id="speed-input" /></div>
+  </div>
+
+  <div class="grid" id="left-indicator-grid"></div>
+
+  <div class="game-over" id="game-over">Game Over</div>
+  <div style="text-align: center;">
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="restartGame()" style="display:none" id="restart-btn">Restart</button>
+  </div>
+</div>
+
+<script>
+  const landing = document.getElementById('landing-screen');
+  const gameContainer = document.getElementById('game-container');
+  const timerEl = document.getElementById('timer');
+  const inputTimerEl = document.getElementById('input-timer');
+  const gameOverEl = document.getElementById('game-over');
+  const leftGrid = document.getElementById('left-indicator-grid');
+  const restartBtn = document.getElementById('restart-btn');
+
+  let timeLeft = 180;
+  let timerInterval, indicatorInterval, hideTimeout, roundTimeout, inputCountdownInterval;
+  let currentIndex = -1;
+  let active = false;
+  const dataFields = ['altimetre', 'height', 'speed'];
+  let data = {}, hidden = [];
+
+  const errorSound = new Audio('https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg');
+
+  for (let i = 0; i < 9; i++) {
+    const divL = document.createElement('div');
+    leftGrid.appendChild(divL);
+  }
+
+  const leftGridEls = leftGrid.querySelectorAll('div');
+
+  function generateData() {
+    return {
+      altimetre: Math.floor(Math.random() * 20000),
+      height: Math.floor(Math.random() * 30000),
+      speed: Math.floor(Math.random() * 400),
+    };
+  }
+
+  function updateDisplay() {
+    dataFields.forEach(field => {
+      const valSpan = document.getElementById(`${field}-value`);
+      const input = document.getElementById(`${field}-input`);
+      input.classList.remove('invalid');
+      if (hidden.includes(field)) {
+        valSpan.innerText = '---';
+        input.disabled = false;
+        input.value = '';
+      } else {
+        valSpan.innerText = data[field];
+        input.value = data[field];
+        input.disabled = true;
+      }
+    });
+  }
+
+  function hideFields() {
+    const count = Math.floor(Math.random() * 2) + 1;
+    hidden = [...dataFields].sort(() => 0.5 - Math.random()).slice(0, count);
+    updateDisplay();
+
+    let secondsLeft = 15;
+    inputTimerEl.innerText = `Input Time Left: ${secondsLeft}s`;
+    inputCountdownInterval = setInterval(() => {
+      secondsLeft--;
+      inputTimerEl.innerText = `Input Time Left: ${secondsLeft}s`;
+      if (secondsLeft <= 0) {
+        clearInterval(inputCountdownInterval);
+        inputTimerEl.innerText = '';
+      }
+    }, 1000);
+
+    roundTimeout = setTimeout(() => {
+      if (!checkAnswers()) {
+        showInputErrors();
+        errorSound.play();
+      } else {
+        showData();
+      }
+    }, 15000);
+  }
+
+  function checkAnswers() {
+    return hidden.every(field => {
+      const input = document.getElementById(`${field}-input`).value;
+      return parseInt(input) === data[field];
+    });
+  }
+
+  function showInputErrors() {
+    hidden.forEach(field => {
+      const input = document.getElementById(`${field}-input`);
+      if (parseInt(input.value) !== data[field]) {
+        input.classList.add('invalid');
+      }
+    });
+  }
+
+  function startIndicator() {
+    indicatorInterval = setInterval(() => {
+      leftGridEls.forEach(el => el.classList.remove('red', 'green'));
+      currentIndex = Math.floor(Math.random() * leftGridEls.length);
+      leftGridEls[currentIndex].classList.add('red');
+      active = true;
+
+      hideTimeout = setTimeout(() => {
+        if (active) endGame();
+      }, 5000);
+    }, 15000);
+  }
+
+  function showData() {
+    data = generateData();
+    hidden = [];
+    updateDisplay();
+    setTimeout(hideFields, 8000);
+  }
+
+  function startGame() {
+    clearAll();
+    gameOverEl.style.display = 'none';
+    restartBtn.style.display = 'none';
+    timeLeft = 180;
+    timerEl.innerText = `Time Left: ${timeLeft}s`;
+
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      timerEl.innerText = `Time Left: ${timeLeft}s`;
+      if (timeLeft <= 0) endGame();
+    }, 1000);
+
+    startIndicator();
+    showData();
+  }
+
+  function clearAll() {
+    clearInterval(timerInterval);
+    clearInterval(indicatorInterval);
+    clearTimeout(hideTimeout);
+    clearTimeout(roundTimeout);
+    clearInterval(inputCountdownInterval);
+  }
+
+  function endGame() {
+    clearAll();
+    gameOverEl.style.display = 'block';
+    restartBtn.style.display = 'inline-block';
+  }
+
+  function restartGame() {
+    [...document.querySelectorAll('input')].forEach(i => {
+      i.value = '';
+      i.classList.remove('invalid');
+    });
+    startGame();
+  }
+
+  function startExperience() {
+    landing.style.display = 'none';
+    gameContainer.style.display = 'block';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!active) return;
+    const key = e.key;
+    const map = {
+      '7': 0, '8': 1, '9': 2,
+      '4': 3, '5': 4, '6': 5,
+      '1': 6, '2': 7, '3': 8
+    };
+    const expectedIndex = map[key];
+    if (expectedIndex === currentIndex) {
+      leftGridEls[currentIndex].classList.remove('red');
+      leftGridEls[currentIndex].classList.add('green');
+      active = false;
+    } else {
+      endGame();
+    }
+  });
+</script>
+</body>
+</html>

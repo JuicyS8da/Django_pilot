@@ -1,0 +1,1650 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-04-12T10:21:39.028Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Экзамен",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 1 for \\u042d\\u043a\\u0437\\u0430\\u043c\\u0435\\u043d\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 1\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 1\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-04-17T05:49:43.180Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Экзамен",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Time limit\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-04-17T05:50:47.443Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Экзамен",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-04-17T06:43:46.080Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Экзамен",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-04-17T06:45:52.283Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Экзамен 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 2 for \\u042d\\u043a\\u0437\\u0430\\u043c\\u0435\\u043d 2\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 2\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 2\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 2\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 2\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-04-19T07:37:47.836Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Теоретический тест пилота",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 3 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 4 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 5 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 6 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 7 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 8 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 9 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 10 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 11 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"question\", \"object\": \"Question 12 for \\u0422\\u0435\\u043e\\u0440\\u0435\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0442\\u0435\\u0441\\u0442 \\u043f\\u0438\\u043b\\u043e\\u0442\\u0430\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 3\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 3\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 3\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 3\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 4\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 4\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 4\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 4\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 5\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 5\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 5\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 5\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 6\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 6\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 6\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 6\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 7\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 7\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 7\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 7\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 8\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 8\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 8\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 8\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 9\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 9\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 9\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 9\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 10\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 10\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 10\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 10\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 11\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 11\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 11\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 11\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 12\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 12\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 12\"}}, {\"added\": {\"name\": \"option\", \"object\": \"Option for Question 12\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-04-26T05:44:22.766Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Теоретический тест пилота",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"option\", \"object\": \"Option for Question 12\", \"fields\": [\"Is correct\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add subscription",
+    "content_type": 6,
+    "codename": "add_subscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change subscription",
+    "content_type": 6,
+    "codename": "change_subscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete subscription",
+    "content_type": 6,
+    "codename": "delete_subscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view subscription",
+    "content_type": 6,
+    "codename": "view_subscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 7,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 7,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 7,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 7,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add user subscription",
+    "content_type": 8,
+    "codename": "add_usersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change user subscription",
+    "content_type": 8,
+    "codename": "change_usersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete user subscription",
+    "content_type": 8,
+    "codename": "delete_usersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view user subscription",
+    "content_type": 8,
+    "codename": "view_usersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add exam",
+    "content_type": 9,
+    "codename": "add_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change exam",
+    "content_type": 9,
+    "codename": "change_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete exam",
+    "content_type": 9,
+    "codename": "delete_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view exam",
+    "content_type": 9,
+    "codename": "view_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add exam result",
+    "content_type": 10,
+    "codename": "add_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change exam result",
+    "content_type": 10,
+    "codename": "change_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete exam result",
+    "content_type": 10,
+    "codename": "delete_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view exam result",
+    "content_type": 10,
+    "codename": "view_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add question",
+    "content_type": 11,
+    "codename": "add_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change question",
+    "content_type": 11,
+    "codename": "change_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete question",
+    "content_type": 11,
+    "codename": "delete_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view question",
+    "content_type": 11,
+    "codename": "view_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add option",
+    "content_type": 12,
+    "codename": "add_option"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change option",
+    "content_type": 12,
+    "codename": "change_option"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete option",
+    "content_type": 12,
+    "codename": "delete_option"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view option",
+    "content_type": 12,
+    "codename": "view_option"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add answer",
+    "content_type": 13,
+    "codename": "add_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change answer",
+    "content_type": 13,
+    "codename": "change_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete answer",
+    "content_type": 13,
+    "codename": "delete_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view answer",
+    "content_type": 13,
+    "codename": "view_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add user answer",
+    "content_type": 14,
+    "codename": "add_useranswer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change user answer",
+    "content_type": 14,
+    "codename": "change_useranswer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete user answer",
+    "content_type": 14,
+    "codename": "delete_useranswer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view user answer",
+    "content_type": 14,
+    "codename": "view_useranswer"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "users",
+    "model": "subscription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "users",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "users",
+    "model": "usersubscription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "exams",
+    "model": "exam"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "exams",
+    "model": "examresult"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "exams",
+    "model": "question"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "exams",
+    "model": "option"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "exams",
+    "model": "answer"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "exams",
+    "model": "useranswer"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "iyg64maobpmrf3353h215pt86aozudui",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pBSpjC4dO8ZyDCgVA0kpV0Z7y5NutDte-__t_C0rdlvLS1-juIsjDj9skD8TGUX8UHlXiXXsi5zkHsiD9vktcb0uhzt30GmlvsaCKxF1Ig0wJRGVmjCDdHpyEk5TaCHSYXOglEAcWSrwSl0Bpg7FJ8vwmk3Vw:1uFwmV:lpaET9lk8qi8KyVRyU2j1aen6WXXVncwCJHnwbduTRY",
+    "expire_date": "2025-05-30T15:15:27.968Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "usjcbvykicsyphe5mgu7rnba2w9nbf2s",
+  "fields": {
+    "session_data": ".eJxVjLsOAiEURP-F2hC4PLW09xvIhQuyaiBZdivjv7ubbKHNFHPOzJsFXJca1pHnMBG7MMNOv13E9MxtB_TAdu889bbMU-S7wg86-K1Tfl0P9--g4qjbOp6tIS9AkzJFSumRhJQagQicdgSxeIXOESoriinWWoiQUs46li3Y5wvUFDgp:1uA8U5:b69LHXajr8NQITFHAjNASnym7Ih8NvQZWP6jpJLonYM",
+    "expire_date": "2025-05-14T14:32:25.969Z"
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$vpciBJnXzcOLbUBAAfgADG$xdyBo6YCnNpgYabSPLeOGVrEC8b3Y6Ky5uLdNXQ5QHg=",
+    "last_login": "2025-04-12T10:20:13.634Z",
+    "is_superuser": false,
+    "username": "pilot",
+    "first_name": "future",
+    "last_name": "pilot",
+    "email": "pilot@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-12T10:19:52.403Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$lOci9PVwVU535kePw3QEHD$0Mnk3G3a+c2T45XppeDxZs07yb0C8q1YZsmP0np2kp8=",
+    "last_login": "2025-04-26T05:42:39.810Z",
+    "is_superuser": true,
+    "username": "user",
+    "first_name": "",
+    "last_name": "",
+    "email": "user@mail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-12T10:20:46.865Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$YvoXhAIBQzG7cPaFrI9coK$57tfUOSlFTDo4v60VHi23qHyPSV6pRfjGMN5ExXhsh0=",
+    "last_login": "2025-04-21T05:15:13.849Z",
+    "is_superuser": false,
+    "username": "bebaboba",
+    "first_name": "batman",
+    "last_name": "gothem",
+    "email": "bebaboba@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-21T05:13:29.517Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$jpOFTiFgeqNUO8caC2Kikx$i8Gn9iOj0q8PgjVORnFz4GHkrP79sg728dvvYTWzCQ0=",
+    "last_login": "2025-04-26T05:41:19.857Z",
+    "is_superuser": false,
+    "username": "newuser",
+    "first_name": "name",
+    "last_name": "surname",
+    "email": "user@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-26T05:41:19.411Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$giZogvLxCIiB5U4qMCJMCk$GkNSECp6kLDqnyBBfh92I3lkox0dmvtp/CcYUD7neAM=",
+    "last_login": "2025-04-30T14:32:25.966Z",
+    "is_superuser": false,
+    "username": "username2",
+    "first_name": "username",
+    "last_name": "username",
+    "email": "username@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-30T14:32:25.515Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$WlCVvssvSU3Y0PpZSBS5FU$y1ydmgBBfXFqy+/ozy8JcKcQoJMDJdGITMvvxARbncE=",
+    "last_login": "2025-05-16T15:15:27.966Z",
+    "is_superuser": false,
+    "username": "Alex",
+    "first_name": "Alex",
+    "last_name": "Smith",
+    "email": "alexsmith@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-05-16T15:15:27.460Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "exams.exam",
+  "pk": 1,
+  "fields": {
+    "title": "Экзамен",
+    "description": "Очень важный экзамен",
+    "time_limit": 25
+  }
+},
+{
+  "model": "exams.exam",
+  "pk": 2,
+  "fields": {
+    "title": "Экзамен 2",
+    "description": "Сурер важный экзамен",
+    "time_limit": 20
+  }
+},
+{
+  "model": "exams.exam",
+  "pk": 3,
+  "fields": {
+    "title": "Теоретический тест пилота",
+    "description": "Тест на проверку теоретических знаний.",
+    "time_limit": 90
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 1,
+  "fields": {
+    "exam": 1,
+    "text": "Как пилотировать?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 2,
+  "fields": {
+    "exam": 2,
+    "text": "Сколько минут проходит этот экзамен?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 3,
+  "fields": {
+    "exam": 3,
+    "text": "Что является основным контролем для изменения высоты полета в самолете?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 4,
+  "fields": {
+    "exam": 3,
+    "text": "Как называется маневр, при котором самолет изменяет направление полета по горизонтали?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 5,
+  "fields": {
+    "exam": 3,
+    "text": "Как называется процесс снижения высоты без использования двигателей?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 6,
+  "fields": {
+    "exam": 3,
+    "text": "Что из перечисленного влияет на аэродинамическое сопротивление самолета?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 7,
+  "fields": {
+    "exam": 3,
+    "text": "Как называется система, которая позволяет пилотам поддерживать горизонтальный полет на заданной высоте?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 8,
+  "fields": {
+    "exam": 3,
+    "text": "Что из нижеперечисленного необходимо сделать пилоту для увеличения скорости воздушного судна?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 9,
+  "fields": {
+    "exam": 3,
+    "text": "Как называется основной элемент управления самолета, позволяющий управлять углом наклона?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 10,
+  "fields": {
+    "exam": 3,
+    "text": "Какие два параметра связаны с понятием \"критический угол атаки\"?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 11,
+  "fields": {
+    "exam": 3,
+    "text": "Какая из следующих причин может привести к штопору?"
+  }
+},
+{
+  "model": "exams.question",
+  "pk": 12,
+  "fields": {
+    "exam": 3,
+    "text": "Какое правило помогает пилотам избежать столкновения с другими воздушными судами в процессе полета?"
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 1,
+  "fields": {
+    "question": 1,
+    "text": "Да",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 2,
+  "fields": {
+    "question": 1,
+    "text": "Нет",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 3,
+  "fields": {
+    "question": 2,
+    "text": "15",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 4,
+  "fields": {
+    "question": 2,
+    "text": "20",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 5,
+  "fields": {
+    "question": 2,
+    "text": "25",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 6,
+  "fields": {
+    "question": 2,
+    "text": "10",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 7,
+  "fields": {
+    "question": 3,
+    "text": "Рулевой механизм",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 8,
+  "fields": {
+    "question": 3,
+    "text": "Стабилизатор",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 9,
+  "fields": {
+    "question": 3,
+    "text": "Рычаг управления высотой",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 10,
+  "fields": {
+    "question": 3,
+    "text": "Тормоза",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 11,
+  "fields": {
+    "question": 4,
+    "text": "Пикирование",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 12,
+  "fields": {
+    "question": 4,
+    "text": "Вертолетный поворот",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 13,
+  "fields": {
+    "question": 4,
+    "text": "Руление",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 14,
+  "fields": {
+    "question": 4,
+    "text": "Баншот",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 15,
+  "fields": {
+    "question": 5,
+    "text": "Планирование",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 16,
+  "fields": {
+    "question": 5,
+    "text": "Пикирование",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 17,
+  "fields": {
+    "question": 5,
+    "text": "Подъем",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 18,
+  "fields": {
+    "question": 5,
+    "text": "Пробежка",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 19,
+  "fields": {
+    "question": 6,
+    "text": "Тяга двигателей",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 20,
+  "fields": {
+    "question": 6,
+    "text": "Угол атаки крыла",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 21,
+  "fields": {
+    "question": 6,
+    "text": "Система стабилизации",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 22,
+  "fields": {
+    "question": 6,
+    "text": "Все вышеперечисленное",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 23,
+  "fields": {
+    "question": 7,
+    "text": "Автопилот",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 24,
+  "fields": {
+    "question": 7,
+    "text": "Радиолокационное оборудование",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 25,
+  "fields": {
+    "question": 7,
+    "text": "Курсоуказатель",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 26,
+  "fields": {
+    "question": 7,
+    "text": "Система стабилизации",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 27,
+  "fields": {
+    "question": 8,
+    "text": "Увеличить угол атаки",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 28,
+  "fields": {
+    "question": 8,
+    "text": "Уменьшить угол атаки",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 29,
+  "fields": {
+    "question": 8,
+    "text": "Уменьшить тягу двигателей",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 30,
+  "fields": {
+    "question": 8,
+    "text": "Увеличить скорость ветра",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 31,
+  "fields": {
+    "question": 9,
+    "text": "Элероны",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 32,
+  "fields": {
+    "question": 9,
+    "text": "Стабилизатор",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 33,
+  "fields": {
+    "question": 9,
+    "text": "Рулевой механизм",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 34,
+  "fields": {
+    "question": 9,
+    "text": "Ручка управления",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 35,
+  "fields": {
+    "question": 10,
+    "text": "Сила тяги и нагрузка",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 36,
+  "fields": {
+    "question": 10,
+    "text": "Скорость и угол наклона",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 37,
+  "fields": {
+    "question": 10,
+    "text": "Угол атаки и скорость полета",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 38,
+  "fields": {
+    "question": 10,
+    "text": "Угол атаки и максимальная подъемная сила",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 39,
+  "fields": {
+    "question": 11,
+    "text": "Превышение критического угла атаки",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 40,
+  "fields": {
+    "question": 11,
+    "text": "Слишком низкая скорость",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 41,
+  "fields": {
+    "question": 11,
+    "text": "Неправильная работа стабилизатора",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 42,
+  "fields": {
+    "question": 11,
+    "text": "Все вышеперечисленное",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 43,
+  "fields": {
+    "question": 12,
+    "text": "Принцип \"права в воздухе\"",
+    "is_correct": true
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 44,
+  "fields": {
+    "question": 12,
+    "text": "Принцип \"первого взлета\"",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 45,
+  "fields": {
+    "question": 12,
+    "text": "Принцип \"предварительного расчета\"",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.option",
+  "pk": 46,
+  "fields": {
+    "question": 12,
+    "text": "Принцип \"стратегического обхода\"",
+    "is_correct": false
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "question": 3,
+    "selected_option": 8,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "question": 4,
+    "selected_option": 11,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "question": 5,
+    "selected_option": 16,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "question": 6,
+    "selected_option": 21,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "question": 12,
+    "selected_option": 46,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "question": 7,
+    "selected_option": 25,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 7,
+  "fields": {
+    "user": 3,
+    "question": 8,
+    "selected_option": 29,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "question": 9,
+    "selected_option": 32,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "question": 10,
+    "selected_option": 37,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "question": 11,
+    "selected_option": 41,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "question": 2,
+    "selected_option": 4,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 12,
+  "fields": {
+    "user": 4,
+    "question": 3,
+    "selected_option": 8,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 13,
+  "fields": {
+    "user": 4,
+    "question": 4,
+    "selected_option": 11,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 14,
+  "fields": {
+    "user": 4,
+    "question": 5,
+    "selected_option": 15,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 15,
+  "fields": {
+    "user": 4,
+    "question": 6,
+    "selected_option": 20,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 16,
+  "fields": {
+    "user": 4,
+    "question": 7,
+    "selected_option": 25,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 17,
+  "fields": {
+    "user": 4,
+    "question": 8,
+    "selected_option": 29,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 18,
+  "fields": {
+    "user": 4,
+    "question": 9,
+    "selected_option": 31,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 19,
+  "fields": {
+    "user": 4,
+    "question": 10,
+    "selected_option": 37,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 20,
+  "fields": {
+    "user": 4,
+    "question": 11,
+    "selected_option": 39,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 21,
+  "fields": {
+    "user": 4,
+    "question": 12,
+    "selected_option": 43,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 22,
+  "fields": {
+    "user": 5,
+    "question": 3,
+    "selected_option": 7,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 23,
+  "fields": {
+    "user": 5,
+    "question": 8,
+    "selected_option": 29,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.useranswer",
+  "pk": 24,
+  "fields": {
+    "user": 5,
+    "question": 12,
+    "selected_option": 43,
+    "short_answer": null
+  }
+},
+{
+  "model": "exams.examresult",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "exam": 3,
+    "score": "10.00",
+    "date_taken": "2025-04-25T14:39:44.852Z"
+  }
+},
+{
+  "model": "exams.examresult",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "exam": 2,
+    "score": "100.00",
+    "date_taken": "2025-04-26T05:31:47.392Z"
+  }
+},
+{
+  "model": "exams.examresult",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "exam": 3,
+    "score": "50.00",
+    "date_taken": "2025-04-26T05:42:09.941Z"
+  }
+},
+{
+  "model": "exams.examresult",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "exam": 3,
+    "score": "10.00",
+    "date_taken": "2025-04-30T14:39:09.061Z"
+  }
+}
+]

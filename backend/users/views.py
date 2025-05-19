@@ -26,22 +26,30 @@ def login_view(request):
     return render(request, 'login.html', context={'form': form})
 
 def register_view(request):
+    errors = []  # сюда соберём все ошибки
+
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST)
         print(request.POST)
-        print(form.errors)
         if form.is_valid():
             print("Форма валидна")
             user = form.save()
             login(request, user)
             return redirect('profile')
+        else:
+            # Собираем все ошибки формы
+            for field, field_errors in form.errors.items():
+                for error in field_errors:
+                    errors.append(error)
     else:
         form = CustomRegisterForm()
 
     context = {
         'form': form,
+        'errors': errors,
     }
     return render(request, 'registration.html', context)
+
 
 def sign_out(request):
     logout(request)

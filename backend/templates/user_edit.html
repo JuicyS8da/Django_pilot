@@ -38,11 +38,19 @@
                 </div>
         
                 <div class="profile-info">
+                    {% if user.is_authenticated %}
+                    <label>Имя:</label>
+                    <input type="text" value="{{ user.first_name }}" class="profile-input">
+        
+                    <label>Фамилия:</label>
+                    <input type="text" value="{{ user.last_name }}" class="profile-input">
+                    {% else %}
                     <label>Имя:</label>
                     <input type="text" value="Мугдарбек" class="profile-input">
         
                     <label>Фамилия:</label>
                     <input type="text" value="Нурислам" class="profile-input">
+                    {% endif %}
         
                     <label>Телефон:</label>
                     <input type="text" value="+7 777 123 4567" class="profile-input">
