@@ -112,6 +112,11 @@
             color: rgba(255, 255, 255, 0.8);
             text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
         }
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +136,13 @@
             <p class="text-center">Давайте начнем!</p>
             <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
+
+                {% if errors %}
+                    {% for error in errors %}
+                        <div id="error" class="error-message" style="display: block;">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+
                 <div class="mb-3">
                     {{ form.username }}
                 </div>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuturePilot COMPASS - Basic coordination</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #dbeafe, #fff);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    canvas {
+      display: block;
+      background: #e0f2ff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    #startScreen, #gameOverScreen {
+      position: absolute;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    #timer {
+      font-size: 20px;
+      margin: 10px;
+      color: #111827;
+    }
+  </style>
+</head>
+<body>
+  <div id="startScreen">
+    <h2>FuturePilot COMPASS</h2>
+    <h3>Basic coordination</h3>
+    <p>Use arrow keys to keep the needle and the ball centered. They will constantly resist you!</p>
+    <button onclick="startGame()">Start</button>
+  </div>
+
+  <div id="gameOverScreen" style="display:none;">
+    <h2>Time's up!</h2>
+    <p id="scoreDisplay"></p>
+    <button onclick="restartGame()">Start Again</button>
+  </div>
+
+  <div id="timer"></div>
+  <canvas id="gameCanvas" width="500" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const centerX = canvas.width / 2;
+    const centerY = 200;
+    const boatY = 450;
+
+    let needleAngle = 0;
+    let needleVelocity = 0;
+    let ballX = 0;
+    let ballVelocity = 0;
+
+    let gameRunning = false;
+    let timer = 180;
+    let timerInterval;
+    let score = 0;
+
+    const keyState = {};
+    document.addEventListener("keydown", (e) => keyState[e.key] = true);
+    document.addEventListener("keyup", (e) => keyState[e.key] = false);
+
+    function drawClockFace() {
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 150, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#0f172a";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * Math.PI) / 6;
+        const inner = 130;
+        const outer = 150;
+        ctx.beginPath();
+        ctx.moveTo(centerX + inner * Math.cos(angle), centerY + inner * Math.sin(angle));
+        ctx.lineTo(centerX + outer * Math.cos(angle), centerY + outer * Math.sin(angle));
+        ctx.stroke();
+      }
+    }
+
+    function drawNeedle() {
+      const length = 120;
+      const endX = centerX + length * Math.cos(needleAngle);
+      const endY = centerY + length * Math.sin(needleAngle);
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(endX, endY);
+      ctx.strokeStyle = "#ef4444";
+      ctx.lineWidth = 6;
+      ctx.stroke();
+    }
+
+    function drawBoat() {
+      ctx.save();
+      ctx.translate(centerX, boatY);
+      ctx.fillStyle = "#1e3a8a";
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 120, 40, 0, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.strokeStyle = "white";
+      [-15, 0, 15].forEach(x => {
+        ctx.beginPath();
+        ctx.moveTo(x, -20);
+        ctx.lineTo(x, 20);
+        ctx.stroke();
+      });
+
+      ctx.beginPath();
+      ctx.arc(ballX, 0, 12, 0, 2 * Math.PI);
+      ctx.fillStyle = "#facc15";
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function updatePhysics() {
+      if (keyState["ArrowLeft"]) needleVelocity -= 0.001;
+      if (keyState["ArrowRight"]) needleVelocity += 0.001;
+      if (keyState["ArrowUp"]) ballVelocity -= 0.2;
+      if (keyState["ArrowDown"]) ballVelocity += 0.2;
+
+      needleVelocity += Math.random() * 0.002 - 0.001;
+      needleAngle += needleVelocity;
+      needleVelocity *= 0.98;
+
+      ballVelocity += (Math.random() * 1 - 0.5);
+      ballX += ballVelocity;
+      ballVelocity *= 0.95;
+
+      if (ballX < -100) {
+        ballX = -100;
+        ballVelocity *= -0.6;
+      } else if (ballX > 100) {
+        ballX = 100;
+        ballVelocity *= -0.6;
+      }
+
+      calculateScore();
+    }
+
+    function calculateScore() {
+      const needleDeviation = Math.abs(needleAngle);
+      const ballDeviation = Math.abs(ballX);
+      const maxNeedle = Math.PI / 4;
+      const maxBall = 100;
+
+      const needleScore = Math.max(0, (1 - needleDeviation / maxNeedle));
+      const ballScore = Math.max(0, (1 - ballDeviation / maxBall));
+      score += needleScore * ballScore;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawClockFace();
+      drawNeedle();
+      drawBoat();
+    }
+
+    function loop() {
+      if (!gameRunning) return;
+      updatePhysics();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    function updateTimer() {
+      timer--;
+      document.getElementById("timer").textContent = `Time Left: ${Math.floor(timer / 60)}:${("0" + (timer % 60)).slice(-2)}`;
+      if (timer <= 0) {
+        clearInterval(timerInterval);
+        gameRunning = false;
+        document.getElementById("scoreDisplay").textContent = `Score: ${Math.round(score)}`;
+        document.getElementById("gameOverScreen").style.display = "block";
+      }
+    }
+
+    function startGame() {
+      document.getElementById("startScreen").style.display = "none";
+      timer = 180;
+      document.getElementById("timer").textContent = "Time Left: 3:00";
+      gameRunning = true;
+      needleAngle = 0;
+      needleVelocity = 0;
+      ballX = 0;
+      ballVelocity = 0;
+      score = 0;
+      loop();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function restartGame() {
+      document.getElementById("gameOverScreen").style.display = "none";
+      startGame();
+    }
+  </script>
+</body>
+</html>

@@ -161,6 +161,11 @@
         #password-recovery .input-group button {
             margin-top: 1rem;
         }
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -171,6 +176,12 @@
                 <p><i>Aviation Training</i></p>
                 <form action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div id="error" class="error-message" style="display: block;">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+
                     <div class="input-group">
                         {{ form.username }}
                     </div>

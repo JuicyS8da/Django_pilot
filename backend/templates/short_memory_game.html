@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuturePilot COMPASS - Short Memory Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #333;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 500px;
+    }
+    .black-box {
+      background-color: black;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-size: 24px;
+      color: white;
+    }
+    .green { color: #00ff00; }
+    .timer {
+      font-size: 18px;
+      margin-top: 10px;
+      color: red;
+    }
+    .hidden { display: none; }
+    .input-box input {
+      width: 60px;
+      font-size: 18px;
+      margin: 10px;
+      padding: 5px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .title { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+    .rules { margin-bottom: 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="intro">
+      <div class="title">FuturePilot COMPASS - Short Memory Game</div>
+      <div class="rules">
+        Memorize the 4 flight parameters shown for a few seconds. Then input them correctly.
+        You have 20 rounds in total. Good luck!
+      </div>
+      <button class="btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game" class="hidden">
+      <div id="round">Round: 1 / 20</div>
+      <div class="timer" id="timer">Time left: 4</div>
+      <div id="displayBox" class="black-box"></div>
+      <div class="input-box hidden" id="inputBox">
+        F: <input type="text" id="inputF" />
+        H: <input type="text" id="inputH" />
+        S: <input type="text" id="inputS" />
+        A: <input type="text" id="inputA" />
+        <br />
+        <button class="btn" onclick="submitAnswer()">Submit</button>
+      </div>
+    </div>
+
+    <div id="result" class="hidden">
+      <div class="title">Game Over!</div>
+      <div id="score"></div>
+      <div id="scoreMessage"></div>
+      <button class="btn" onclick="location.reload()">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    let round = 1;
+    let totalRounds = 50;
+    let correct = 0;
+    let timerInterval;
+    let timeLeft = 4;
+    let currentData = {};
+
+    function generateData() {
+      return {
+        F: Math.floor(10000 + Math.random() * 9000),
+        H: ("000" + Math.floor(Math.random() * 360)).slice(-3),
+        S: Math.floor(200 + Math.random() * 200),
+        A: Math.floor(20000 + Math.random() * 20000),
+      };
+    }
+
+    function startGame() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('game').classList.remove('hidden');
+      nextRound();
+    }
+
+    function nextRound() {
+      if (round > totalRounds) {
+        endGame();
+        return;
+      }
+      document.getElementById('round').textContent = `Round: ${round} / ${totalRounds}`;
+      timeLeft = 4;
+      currentData = generateData();
+
+      document.getElementById('displayBox').innerHTML =
+        `<div>Frequency (F): ${currentData.F}</div>` +
+        `<div>Heading (H): ${currentData.H}</div>` +
+        `<div class="green">Speed (S): ${currentData.S}</div>` +
+        `<div>Altitude (A): ${currentData.A}</div>`;
+
+      document.getElementById('inputBox').classList.add('hidden');
+      document.getElementById('timer').textContent = `Time left: ${timeLeft}`;
+      document.getElementById('timer').classList.remove('hidden');
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').textContent = `Time left: ${timeLeft}`;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById('displayBox').innerHTML = '';
+          document.getElementById('timer').classList.add('hidden');
+          document.getElementById('inputBox').classList.remove('hidden');
+        }
+      }, 1000);
+    }
+
+    function submitAnswer() {
+      const f = document.getElementById('inputF').value;
+      const h = document.getElementById('inputH').value;
+      const s = document.getElementById('inputS').value;
+      const a = document.getElementById('inputA').value;
+
+      if (
+        f == currentData.F &&
+        h == currentData.H &&
+        s == currentData.S &&
+        a == currentData.A
+      ) {
+        correct++;
+      }
+
+      document.getElementById('inputF').value = '';
+      document.getElementById('inputH').value = '';
+      document.getElementById('inputS').value = '';
+      document.getElementById('inputA').value = '';
+
+      round++;
+      nextRound();
+    }
+
+    function endGame() {
+      document.getElementById('game').classList.add('hidden');
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('score').innerHTML = `You got ${correct} out of ${totalRounds} correct!`;
+
+      const percentage = (correct / totalRounds) * 100;
+      let message = '';
+
+      if (percentage === 100) {
+        message = "Perfect memory! You're a born pilot.";
+      } else if (percentage >= 80) {
+        message = "Great job! You have strong memory skills.";
+      } else if (percentage >= 50) {
+        message = "Good effort! Keep training to improve.";
+      } else {
+        message = "Keep practicing — every pilot starts somewhere!";
+      }
+
+      document.getElementById('scoreMessage').innerHTML = message;
+    }
+  </script>
+</body>
+</html>

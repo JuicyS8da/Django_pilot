@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuturePilot - ВЛЭК Информация</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% block 'css' %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #003366;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-name {
+            margin-right: 10px;
+        }
+
+        .user-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: #00509E;
+        }
+
+        .main-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #004080;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #00509E;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003F7F;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Future Pilot</div>
+        <div class="user-info">
+            <span class="user-name" id="profile-name">Мугдарбек Нурислам</span>
+            <img src="imgs/icon_user.png" alt="Фото профиля" class="user-photo">
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="main.html"><i class="fas fa-user"></i> Мой профиль</a></li>
+                    <li><a href="test_start.html"><i class="fas fa-pencil-alt"></i> Сдать экзамен</a></li>
+                    <li><a href="test_result.html"><i class="fas fa-chart-line"></i> Результаты тестов</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Настройки</a></li>
+                    <li><a href="contacts.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-credit-card"></i> Подписки</a></li>
+                    <li><a href="ab_initio.html"><i class="fas fa-plane"></i> AB Initio</a></li>
+                    <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li> 
+                    <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+ <li><a href="vlek.html"><i class="fas fa-info-circle"></i> ВЛЭК</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+    {% block 'main' %}
+    <div class="main-content">
+        <div class="section">
+            <h2>Что такое ВЛЭК?</h2>
+            <p><b>ВЛЭК (Врачебно-Лётная Экспертная Комиссия)</b> — это комплексное медицинское обследование, которое подтверждает пригодность человека к выполнению обязанностей пилота. Для программы <b>Ab Initio</b> компании FuturePilot требуется прохождение ВЛЭК с получением сертификата <b>Class I</b>.</p>
+            <p>ВЛЭК включает в себя обследования всех систем организма, оценку зрения, слуха, психики и физических данных.</p>
+        </div>
+
+        <div class="section">
+            <h2>Этапы прохождения ВЛЭК</h2>
+            <ol>
+                <li>Регистрация в регистратуре ВЛЭК и оформление медицинской карты.</li>
+                <li>Прохождение обследований (анализы крови, мочи, ЭКГ, аудиометрия, ЭЭГ, УЗИ и др.).</li>
+                <li>Консультации узких специалистов: терапевт, окулист, ЛОР, невропатолог, хирург, психиатр, нарколог, стоматолог.</li>
+                <li>Психофизиологическое тестирование (реакция, внимание, память, логическое мышление).</li>
+                <li>Заключение комиссии (выдача сертификата или рекомендации дообследования).</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Список обязательных врачей</h2>
+            <ul>
+                <li>Терапевт (общий осмотр, давление, общее состояние).</li>
+                <li>Офтальмолог (проверка остроты зрения, цветоощущения, поле зрения, глазное дно).</li>
+                <li>ЛОР (проверка слуха, носоглотки, вестибулярного аппарата).</li>
+                <li>Невропатолог (проверка нервной системы, рефлексов).</li>
+                <li>Психиатр и нарколог (выдача справки, проверка психического состояния).</li>
+                <li>Стоматолог (осмотр полости рта, отсутствие хронических инфекций).</li>
+                <li>Хирург (осмотр опорно-двигательного аппарата, осанки, суставов).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Что взять с собой?</h2>
+            <table>
+                <tr><th>№</th><th>Документ / обследование</th><th>Комментарий</th></tr>
+                <tr><td>1</td><td>Удостоверение личности</td><td>Оригинал и копия</td></tr>
+                <tr><td>2</td><td>Фото 3x4 или 4x5</td><td>1 шт., матовое</td></tr>
+                <tr><td>3</td><td>Файловая папка</td><td>На 20 файлов, 2 шт.</td></tr>
+                <tr><td>4</td><td>Свидетельство о рождении</td><td>Оригинал и копия</td></tr>
+                <tr><td>5</td><td>Справка из центра психического здоровья</td><td>С заключением нарколога и психиатра</td></tr>
+                <tr><td>6</td><td>Данные амбулаторной карты</td><td>Выписка из поликлиники</td></tr>
+                <tr><td>7</td><td>Аудиометрия</td><td>Результаты обследования слуха</td></tr>
+                <tr><td>8</td><td>Электроэнцефалография (ЭЭГ)</td><td>Без нагрузки</td></tr>
+                <tr><td>9</td><td>Эхокардиография (ЭХОКГ)</td><td>Обследование сердца</td></tr>
+                <tr><td>10</td><td>УЗИ органов брюшной полости, почек, щитовидной железы</td><td>Актуальные результаты</td></tr>
+                <tr><td>11</td><td>УЗИ малого таза (для девушек)</td><td>По назначению</td></tr>
+                <tr><td>12</td><td>Внутриглазное давление</td><td>Результаты обследования</td></tr>
+                <tr><td>13</td><td>Группа крови и резус-фактор</td><td>Справка</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Рекомендации перед прохождением</h2>
+            <ul>
+                <li>Не употребляйте алкоголь за 48 часов до прохождения.</li>
+                <li>Выспитесь, приходите отдохнувшими.</li>
+                <li>Не употребляйте жирную пищу за день до анализов крови.</li>
+                <li>Берите с собой воду и легкий перекус — процесс может занять несколько часов.</li>
+                <li>Если есть хронические заболевания — возьмите справки и результаты предыдущих обследований.</li>
+                <li>Приходите с утра (рекомендуемое время — с 9:00 до 13:00).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Стоимость и сроки</h2>
+            <p>Примерная стоимость прохождения ВЛЭК — <b>80 000 тенге</b>. Рекомендуется иметь <b>120 000 тенге</b> на случай дополнительных обследований.</p>
+            <p>Прохождение занимает в среднем <b>2-3 дня</b> (зависит от загруженности центра).</p>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block 'js' %}
+    <script>
+        const toggleButton = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>
